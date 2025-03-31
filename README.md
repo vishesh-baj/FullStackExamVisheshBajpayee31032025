@@ -9,6 +9,8 @@ This is a modern, full-stack e-commerce application built with a hybrid architec
 email: admin@example.com
 password: admin123
 
+You can create your own credentials by filling registration form.
+
 ## System Architecture
 
 ### Frontend
