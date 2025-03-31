@@ -188,13 +188,6 @@ NEXT_PUBLIC_API_URL=http://localhost:5040/api
 3. Proceed to checkout and place an order
 4. View order history and details
 
-### Admin Flow Testing
-
-1. Login with admin credentials
-2. Access admin dashboard
-3. View sales reports and order statistics
-4. Manage products and user accounts
-
 ## Troubleshooting
 
 ### Checkout Issues
