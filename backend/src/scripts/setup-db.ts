@@ -1,3 +1,4 @@
+// ! NOT NEEDED IN PRODUCTION
 import supabase from "../config/supabase";
 
 /**
