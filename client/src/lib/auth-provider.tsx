@@ -8,17 +8,7 @@ import {
   useState,
 } from "react";
 import { useAuth } from "./hooks/useAuth";
-
-// Create AuthContext with a more explicit type
-interface AuthContextType {
-  user: ReturnType<typeof useAuth>["user"];
-  isAuthenticated: boolean;
-  isLoading: boolean;
-  error: string | null;
-  login: ReturnType<typeof useAuth>["login"];
-  register: ReturnType<typeof useAuth>["register"];
-  logout: ReturnType<typeof useAuth>["logout"];
-}
+import { AuthContextType } from "@/types";
 
 // Create AuthContext with default values
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

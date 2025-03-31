@@ -1,10 +1,6 @@
+import { ProductCardProps } from "@/types";
 import Link from "next/link";
-import { Product } from "@/lib/api";
 import { useEffect, useState } from "react";
-
-interface ProductCardProps {
-  product: Product;
-}
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const [isClient, setIsClient] = useState(false);

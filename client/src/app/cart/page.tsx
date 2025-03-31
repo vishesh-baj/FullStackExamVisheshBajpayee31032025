@@ -6,14 +6,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { checkout } from "@/lib/api";
 import { toast } from "react-hot-toast";
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { CartItem } from "@/types";
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -80,6 +73,7 @@ export default function CartPage() {
         name: item.name,
         price: item.price,
         quantity: item.quantity,
+        image: item.image,
       }));
 
       const total = calculateTotal();

@@ -4,27 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "js-cookie";
-import {
-  LoginCredentials,
-  RegisterData,
-  loginUser,
-  registerUser,
-  AuthResponse,
-} from "../api";
-
-interface User {
-  id: string;
-  email: string;
-  username?: string;
-  name?: string;
-}
-
-interface DecodedToken {
-  id: string;
-  email: string;
-  iat: number;
-  exp: number;
-}
+import { loginUser, registerUser } from "../api";
+import { DecodedToken, LoginCredentials, RegisterData, User } from "@/types";
 
 // Helper function to synchronize token between localStorage and cookies
 const syncToken = (token: string | null) => {

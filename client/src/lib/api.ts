@@ -1,3 +1,14 @@
+import {
+  AuthResponse,
+  CartItem,
+  LoginCredentials,
+  Order,
+  PaginatedResponse,
+  Product,
+  ProductsQueryParams,
+  RegisterData,
+} from "@/types";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5040/api";
 
 // Utility function to get authentication headers
@@ -10,55 +21,6 @@ const getAuthHeaders = () => {
     ...(token && { Authorization: `Bearer ${token}` }),
   };
 };
-
-export interface Product {
-  _id: string;
-  name: string;
-  category: string;
-  price: number;
-  description: string;
-  imageUrl: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface PaginatedResponse {
-  products: Product[];
-  pagination: {
-    totalItems: number;
-    totalPages: number;
-    currentPage: number;
-    perPage: number;
-  };
-}
-
-export interface ProductsQueryParams {
-  page?: number;
-  limit?: number;
-  category?: string;
-  search?: string;
-}
-
-// Authentication interfaces
-export interface LoginCredentials {
-  email: string;
-  password: string;
-}
-
-export interface RegisterData {
-  username: string;
-  email: string;
-  password: string;
-}
-
-export interface AuthResponse {
-  token: string;
-  user: {
-    id: string;
-    username: string;
-    email: string;
-  };
-}
 
 /**
  * Login user with credentials
@@ -173,32 +135,6 @@ export async function getGroupedProducts(): Promise<Record<string, Product[]>> {
   }
 
   return response.json();
-}
-
-// Cart and Order interfaces
-export interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
-export interface Order {
-  id: string;
-  user_id: string;
-  total_amount: number;
-  status: string;
-  created_at: string;
-  orderItems?: OrderItem[];
-}
-
-export interface OrderItem {
-  id: string;
-  order_id: string;
-  product_id: string;
-  product_name: string;
-  price: number;
-  quantity: number;
 }
 
 /**

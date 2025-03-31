@@ -4,11 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/lib/auth-provider";
 import Loading from "@/app/loading";
-
-interface AuthOnlyProps {
-  children: React.ReactNode;
-  fallback?: string; // URL to redirect to if not authenticated
-}
+import { AuthOnlyProps } from "@/types";
 
 export default function AuthOnly({
   children,

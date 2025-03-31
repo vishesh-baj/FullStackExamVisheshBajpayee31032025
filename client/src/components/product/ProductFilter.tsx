@@ -1,13 +1,7 @@
 "use client";
 
+import { ProductFilterProps } from "@/types";
 import { useState, FormEvent } from "react";
-
-interface ProductFilterProps {
-  activeCategory?: string;
-  activeSearch?: string;
-  onCategoryChange: (category: string | null) => void;
-  onSearchChange: (search: string | null) => void;
-}
 
 const ProductFilter = ({
   activeCategory,

@@ -2,10 +2,11 @@
 
 import AuthOnly from "@/components/auth/AuthOnly";
 import { useEffect, useState } from "react";
-import { Order, getOrderHistory } from "@/lib/api";
+import { getOrderHistory } from "@/lib/api";
 import Link from "next/link";
 import { format } from "date-fns";
 import { toast } from "react-hot-toast";
+import { Order } from "@/types";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);

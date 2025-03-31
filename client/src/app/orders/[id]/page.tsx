@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { getOrderDetails, Order, OrderItem } from "@/lib/api";
+import { getOrderDetails } from "@/lib/api";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
 import Link from "next/link";
 import AuthOnly from "@/components/auth/AuthOnly";
 import { format } from "date-fns";
+import { Order } from "@/types";
 
 export default function OrderDetailPage() {
   const params = useParams();

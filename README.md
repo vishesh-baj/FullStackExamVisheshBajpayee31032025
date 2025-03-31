@@ -4,6 +4,11 @@
 
 This is a modern, full-stack e-commerce application built with a hybrid architecture, combining Next.js for the frontend and a multi-database backend (Supabase and MongoDB). The application features a custom authentication system, comprehensive product management, shopping cart functionality, checkout process, and order management.
 
+### User Credentials (For Testing)
+
+email: admin@example.com
+password: admin123
+
 ## System Architecture
 
 ### Frontend
@@ -12,6 +17,7 @@ This is a modern, full-stack e-commerce application built with a hybrid architec
 - **Styling**: Tailwind CSS for responsive design
 - **State Management**: React Context API and custom hooks
 - **Authentication**: Custom implementation using JWT tokens and localStorage
+- **Parallel Routing**: Parallel routes for app skeleton such that whole app dont have to rerender when a specific slot is changed
 
 ### Backend
 
