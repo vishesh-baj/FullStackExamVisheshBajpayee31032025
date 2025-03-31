@@ -115,11 +115,11 @@ Create a `.env` file in both the `client` and `backend` directories with the fol
 
 ```
 # Backend .env
-PORT=5000
+PORT=5040
 JWT_SECRET=your_jwt_secret
 SUPABASE_URL=your_supabase_url
 SUPABASE_ANON_KEY=your_supabase_anon_key
-MONGODB_URI=your_mongodb_uri (optional)
+MONGODB_URI=your_mongodb_uri
 
 # Client .env
 NEXT_PUBLIC_API_URL=http://localhost:5040/api
@@ -169,7 +169,7 @@ NEXT_PUBLIC_API_URL=http://localhost:5040/api
 
 5. **Access the application**
    - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000/api
+   - Backend API: http://localhost:5040/api
 
 ## Testing the Application
 
@@ -195,7 +195,7 @@ If you encounter issues with checkout, especially related to UUID validation:
 
 1. Run the setup script: `node backend/setup.js`
 2. Access the setup endpoint: `http://localhost:5040/api/admin/setup-database`
-3. Check the database schema via: `http://localhost:5000/api/orders/check-schema`
+3. Check the database schema via: `http://localhost:5040/api/orders/check-schema`
 
 ### Authentication Issues
 
