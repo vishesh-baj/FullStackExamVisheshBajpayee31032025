@@ -264,7 +264,7 @@ If authentication is not working:
 
 ## Things that I missed out
 
-Note: Due to lack of time, I did not host the backend service to any hosting provider, neither did I hoster the front end to any provider.
+Note: Due to lack of time, I did not host the backend service to any hosting provider, neither did I host the front end to any provider.
 
 Although, Here I am writing down all the steps necessary to deploy the services to cloud.
 
@@ -274,7 +274,7 @@ I mostly use render or amplify for deploying backend services. Render provides a
 
 ### For Frontend
 
-I use vercel for all of my frontend deployments because it provides good dx and creating CI/CD on vercel is straight forward. We need to give access to github repo to vercel, ANd then select the branch we want to configure, then add .env variables and any build commands if present whichresults in a deployed url we get from the platform.
+I use vercel for all of my frontend deployments because it provides good dx and creating CI/CD on vercel is straight forward. We need to give access to github repo to vercel, And then select the branch we want to configure, then add .env variables and any build commands if present whichresults in a deployed url we get from the platform.
 
 ## Contact and Support
 
@@ -282,4 +282,4 @@ For any questions or issues during testing, please contact me at [vishesh.bajpay
 
 ---
 
-Thank you for reviewing our e-commerce application. I look forward to your feedback!
+Thank you for reviewing this e-commerce application. I look forward to your feedback!
