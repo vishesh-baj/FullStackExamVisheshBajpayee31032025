@@ -3,6 +3,7 @@ import { hash } from "bcrypt";
 import connectMongoDB from "../config/mongodb";
 import supabase from "../config/sqldb";
 import Product from "../models/product";
+import { User, Order, OrderItem } from "../models/types";
 
 dotenv.config();
 
@@ -150,7 +151,7 @@ async function seedSupabase() {
     }
 
     // Create users with hashed passwords
-    const createdUsers = [];
+    const createdUsers: User[] = [];
     for (const user of sampleUsers) {
       console.log(`Creating user: ${user.username}...`);
       try {
@@ -181,7 +182,7 @@ async function seedSupabase() {
         console.log(
           `✅ Created user: ${user.username} with ID: ${createdUser.id}`
         );
-        createdUsers.push(createdUser);
+        createdUsers.push(createdUser as User);
       } catch (err) {
         console.error(`Exception while creating user ${user.username}:`, err);
       }
@@ -202,7 +203,11 @@ async function seedSupabase() {
 
       for (let i = 0; i < numOrders; i++) {
         // Randomly select 1-4 products for this order
-        const orderItems = [];
+        const orderItems: {
+          product_name: string;
+          quantity: number;
+          price: number;
+        }[] = [];
         const numItems = Math.floor(Math.random() * 4) + 1;
         let totalAmount = 0;
 

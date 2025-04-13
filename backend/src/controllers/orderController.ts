@@ -10,6 +10,7 @@ import {
   getOrderById,
 } from "../services/orderService";
 import supabase from "../config/sqldb";
+import { PostgrestError } from "@supabase/supabase-js";
 
 export const checkout = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -68,7 +69,7 @@ export const checkout = async (req: Request, res: Response): Promise<void> => {
       console.log("Direct order created successfully:", orderData.id);
 
       // Insert items one by one with text product_id
-      let insertError = null;
+      let insertError: PostgrestError | null = null;
       for (const item of items) {
         // Generate UUID for order item
         const { data: uuidData } = await supabase.rpc("generate_uuid");

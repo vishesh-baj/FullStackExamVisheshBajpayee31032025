@@ -1,5 +1,6 @@
 import supabase from "../config/sqldb";
 import { Order, OrderItem } from "../models/types";
+import { PostgrestError } from "@supabase/supabase-js";
 
 export const getDailyRevenue = async () => {
   const { data, error } = await supabase
@@ -13,7 +14,7 @@ export const getDailyRevenue = async () => {
   }
 
   // Process data to get daily revenue
-  const dailyRevenue = data.reduce((acc: any, order) => {
+  const dailyRevenue = data.reduce((acc: Record<string, number>, order) => {
     const date = new Date(order.created_at as string)
       .toISOString()
       .split("T")[0];
@@ -38,6 +39,11 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
+}
+
+interface InsertionError {
+  item: CartItem;
+  error: PostgrestError;
 }
 
 /**
@@ -73,7 +79,7 @@ export const createOrder = async (
 
     // Step 2: Insert items one by one, bypassing the RLS policy
     let insertSuccess = true;
-    let insertionErrors = [];
+    let insertionErrors: InsertionError[] = [];
 
     for (const item of items) {
       // Try direct SQL execution since the ORM is having issues with the data types
