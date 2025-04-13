@@ -2,6 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "test": "jest",
     "dev": "nodemon --exec ts-node src/server.ts",
@@ -40,6 +43,7 @@
     "@types/express": "^4.17.21",
     "@types/helmet": "^4.0.0",
     "@types/jsonwebtoken": "^9.0.9",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^20.11.24",
     "@types/pg": "^8.11.2",
     "@types/sequelize": "^4.28.20",
