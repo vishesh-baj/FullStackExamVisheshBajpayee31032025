@@ -16,7 +16,10 @@
     "types": ["node"],
     "lib": ["ES2020"],
     "sourceMap": true,
-    "declaration": true
+    "declaration": true,
+    "allowJs": true,
+    "checkJs": false,
+    "noImplicitAny": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

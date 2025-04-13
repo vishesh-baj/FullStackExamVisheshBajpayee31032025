@@ -1,4 +1,4 @@
-import Product from "../models/product";
+import Product, { IProduct } from "../models/product";
 
 export const getProductsGroupedByCategory = async () => {
   return await Product.aggregate([
@@ -30,7 +30,7 @@ export const getPaginatedProducts = async (
   page: number,
   limit: number,
   query: any = {}
-) => {
+): Promise<{ products: IProduct[]; pagination: any }> => {
   const skip = (page - 1) * limit;
 
   const products = await Product.find(query)
@@ -57,7 +57,7 @@ export const searchProducts = async (
   searchTerm: string,
   page: number,
   limit: number
-) => {
+): Promise<{ products: IProduct[]; pagination: any }> => {
   // Use text index for searching
   const query = searchTerm ? { $text: { $search: searchTerm } } : {};
 
@@ -68,12 +68,12 @@ export const getProductsByCategory = async (
   category: string,
   page: number,
   limit: number
-) => {
+): Promise<{ products: IProduct[]; pagination: any }> => {
   // Case-insensitive search for category
   const query = { category: new RegExp(category, "i") };
   return getPaginatedProducts(page, limit, query);
 };
 
-export const getProductById = async (id: string) => {
+export const getProductById = async (id: string): Promise<IProduct | null> => {
   return await Product.findById(id);
 };

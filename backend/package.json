@@ -8,10 +8,10 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon --exec ts-node src/server.ts",
+    "prebuild": "npm install @types/node@20.11.24 --save-exact",
     "build": "tsc",
     "start": "node dist/server.js",
-    "seed": "ts-node src/scripts/seed.ts",
-    "postinstall": "npm install @types/node --save-exact"
+    "seed": "ts-node src/scripts/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,7 @@
   "description": "",
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
-    "@types/node": "^20.11.24",
+    "@types/node": "20.11.24",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
